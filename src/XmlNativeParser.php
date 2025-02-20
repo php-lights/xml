@@ -161,6 +161,9 @@ class XmlNativeParser {
 	 * Sets a parser option.
 	 *
 	 * Internally calls `xml_parser_set_option()`.
+	 *
+	 * @return bool Returns a boolean for whether or not
+	 * setting the option was a success.
 	 */
 	public function setOption( Option $option, string|int|bool $value ): bool {
 		return \xml_parser_set_option( $this->parser, $option->value, $value );
@@ -168,30 +171,42 @@ class XmlNativeParser {
 
 	/**
 	 * Sets the parser option of `XML_OPTION_CASE_FOLDING`.
+	 *
+	 * @return bool Returns a boolean for whether or not
+	 * setting the option was a success.
 	 */
-	public function setCaseFolding( bool $value ) {
-		$this->setOption( Option::CaseFolding, $value );
+	public function setCaseFolding( bool $value ): bool {
+		return $this->setOption( Option::CaseFolding, $value );
 	}
 
 	/**
 	 * Sets the parser option of `XML_OPTION_SKIP_WHITE`.
+	 *
+	 * @return bool Returns a boolean for whether or not
+	 * setting the option was a success.
 	 */
-	public function setSkipTagStart( int $value ) {
-		$this->setOption( Option::SkipTagStart, $value );
+	public function setSkipTagStart( int $value ): bool {
+		return $this->setOption( Option::SkipTagStart, $value );
 	}
 
 	/**
 	 * Sets the parser option of `XML_OPTION_SKIP_WHITE`.
+	 *
+	 * @return bool Returns a boolean for whether or not
+	 * setting the option was a success.
 	 */
-	public function setSkipWsp( bool $value ) {
-		$this->setOption( Option::SkipWsp, $value );
+	public function setSkipWsp( bool $value ): bool {
+		return $this->setOption( Option::SkipWsp, $value );
 	}
 
 	/**
 	 * Sets the parser option of `XML_OPTION_TARGET_ENCODING`.
+	 *
+	 * @return bool Returns a boolean for whether or not
+	 * setting the option was a success.
 	 */
-	public function setTargetEncoding( Encoding $encoding ) {
-		$this->setOption( Option::TargetEncoding, $encoding->value );
+	public function setTargetEncoding( Encoding $encoding ): bool {
+		return $this->setOption( Option::TargetEncoding, $encoding->value );
 	}
 
 	/**
@@ -245,6 +260,19 @@ class XmlNativeParser {
 	 */
 	public function onEndNamespaceDecl( callable|null $handler ): true {
 		return \xml_set_end_namespace_decl_handler( $this->parser, $handler );
+	}
+
+	/**
+	 * Calls a user-defined function when the parser
+	 * encounters an external entity reference.
+	 *
+	 * Internally calls `xml_set_external_entity_ref_handler()`.
+	 *
+	 * @param (callable(string): void)|null $handler
+	 * @return true Always returns true
+	 */
+	public function onExternalEntityRef( callable|null $handler ): true {
+		return \xml_set_external_entity_ref_handler( $this->parser, $handler );
 	}
 
 	/**

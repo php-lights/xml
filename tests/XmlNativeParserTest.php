@@ -80,7 +80,7 @@ class XmlNativeParserTest extends TestCase {
 			[ Option::CaseFolding, true ],
 			[ Option::SkipTagStart, 0 ],
 			[ Option::SkipWsp, false ],
-			[ Option::TargetEncoding, 'UTF-8' ],
+			[ Option::TargetEncoding, Encoding::Utf8->value ],
 		];
 	}
 
@@ -90,5 +90,74 @@ class XmlNativeParserTest extends TestCase {
 		$this->assertSame( 0, $parser->getSkipTagStart() );
 		$this->assertFalse( $parser->getSkipWsp() );
 		$this->assertSame( Encoding::Utf8, $parser->getTargetEncoding() );
+	}
+
+	#[DataProvider( "provideSetOption" )]
+	public function testSetOption( Option $option, string|int|bool $settingValue ): void {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$wasSuccess = $parser->setOption( $option, $settingValue );
+		$this->assertTrue( $wasSuccess );
+	}
+
+	public static function provideSetOption(): array {
+		return [
+			[ Option::CaseFolding, false ],
+			[ Option::SkipTagStart, 1 ],
+			[ Option::SkipWsp, true ],
+			[ Option::TargetEncoding, Encoding::UsAscii->value ],
+		];
+	}
+
+	public function testSetOptionTyped() {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$this->assertTrue( $parser->setCaseFolding( false ) );
+		$this->assertTrue( $parser->setSkipTagStart( 1 ) );
+		$this->assertTrue( $parser->setSkipWsp( true ) );
+		$this->assertTrue( $parser->setTargetEncoding( Encoding::UsAscii ) );
+	}
+
+	public function testOnCharacterData() {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$this->assertTrue( $parser->onCharacterData( null ) );
+	}
+
+	public function testOnDefault() {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$this->assertTrue( $parser->onDefault( null ) );
+	}
+
+	public function testOnElement() {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$this->assertTrue( $parser->onElement( null, null ) );
+	}
+
+	public function testOnEndNamespaceDecl() {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$this->assertTrue( $parser->onEndNamespaceDecl( null ) );
+	}
+
+	public function testOnExternalEntityRef() {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$this->assertTrue( $parser->onExternalEntityRef( null ) );
+	}
+
+	public function testOnNotationDecl() {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$this->assertTrue( $parser->onNotationDecl( null ) );
+	}
+
+	public function testOnProcessingInstruction() {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$this->assertTrue( $parser->onProcessingInstruction( null ) );
+	}
+
+	public function testOnStartNamespaceDecl() {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$this->assertTrue( $parser->onStartNamespaceDecl( null ) );
+	}
+
+	public function testOnUnparsedEntityDecl() {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$this->assertTrue( $parser->onUnparsedEntityDecl( null ) );
 	}
 }
