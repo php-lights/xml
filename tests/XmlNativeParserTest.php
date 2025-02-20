@@ -80,7 +80,7 @@ class XmlNativeParserTest extends TestCase {
 			[ Option::CaseFolding, true ],
 			[ Option::SkipTagStart, 0 ],
 			[ Option::SkipWhite, false ],
-			// [ Option::TargetEncoding, 'UTF-8' ],
+			[ Option::TargetEncoding, 'UTF-8' ],
 		];
 	}
 }
