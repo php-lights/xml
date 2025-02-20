@@ -1,6 +1,6 @@
 {
-	"name": "author/package",
-	"description": "repository template for creating composer packages",
+	"name": "neoncitylights/xml",
+	"description": "PHP library that provides a nicer interface over PHP's native XML API",
 	"authors": [
 		{
 			"name": "Samantha",
@@ -11,7 +11,7 @@
 	"license": "MIT",
 	"autoload": {
 		"psr-4": {
-			"Neoncitylights\\ExampleLibrary\\": "src/"
+			"Neoncitylights\\Xml\\": "src/"
 		}
 	},
 	"require": {
