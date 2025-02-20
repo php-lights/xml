@@ -3,6 +3,8 @@
 namespace Neoncitylights\Xml;
 
 /**
+ * An error code returned from an XML parser
+ *
  * @see https://www.php.net/manual/en/xml.constants.php
  */
 enum ErrorCode: int {
