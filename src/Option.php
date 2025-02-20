@@ -2,6 +2,9 @@
 
 namespace Neoncitylights\Xml;
 
+/**
+ * @see https://www.php.net/manual/en/xml.constants.php
+ */
 enum Option: int {
 	case CaseFolding = \XML_OPTION_CASE_FOLDING;
 	case SkipTagStart = \XML_OPTION_SKIP_TAGSTART;

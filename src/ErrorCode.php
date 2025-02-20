@@ -2,6 +2,9 @@
 
 namespace Neoncitylights\Xml;
 
+/**
+ * @see https://www.php.net/manual/en/xml.constants.php
+ */
 enum ErrorCode: int {
 	case None = \XML_ERROR_NONE;
 	case NoMemory = \XML_ERROR_NO_MEMORY;
@@ -25,4 +28,8 @@ enum ErrorCode: int {
 	case IncorrectEncoding = \XML_ERROR_INCORRECT_ENCODING;
 	case UnclosedCDATASection = \XML_ERROR_UNCLOSED_CDATA_SECTION;
 	case ExternalEntityHandling = \XML_ERROR_EXTERNAL_ENTITY_HANDLING;
+
+	public function asErrorString(): ?string {
+		return \xml_error_string( $this->value );
+	}
 }
