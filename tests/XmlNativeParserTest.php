@@ -70,7 +70,7 @@ class XmlNativeParserTest extends TestCase {
 
 	#[DataProvider( "provideGetOption" )]
 	public function testGetOption( Option $option, string|int|bool $expectedValue ): void {
-		$parser = XmlNativeParser::new(Encoding::Utf8);
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
 		$actualValue = $parser->getOption( $option );
 		$this->assertSame( $expectedValue, $actualValue );
 	}
