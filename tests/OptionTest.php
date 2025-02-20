@@ -18,7 +18,7 @@ class OptionTest extends TestCase {
 		return [
 			[ Option::CaseFolding, \XML_OPTION_CASE_FOLDING ],
 			[ Option::SkipTagStart, \XML_OPTION_SKIP_TAGSTART ],
-			[ Option::SkipWhite, \XML_OPTION_SKIP_WHITE ],
+			[ Option::SkipWsp, \XML_OPTION_SKIP_WHITE ],
 			[ Option::TargetEncoding, \XML_OPTION_TARGET_ENCODING ],
 		];
 	}

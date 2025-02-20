@@ -126,12 +126,72 @@ class XmlNativeParser {
 	}
 
 	/**
+	 * Retrieve the parser option value of
+	 * `XML_OPTION_CASE_FOLDING`.
+	 */
+	public function getCaseFolding(): bool {
+		return $this->getOption( Option::CaseFolding );
+	}
+
+	/**
+	 * Retrieve the parser option value of
+	 * `XML_OPTION_SKIP_TAG_START`.
+	 */
+	public function getSkipTagStart(): int {
+		return $this->getOption( Option::SkipTagStart );
+	}
+
+	/**
+	 * Retrieve the parser option value of
+	 * `XML_OPTION_SKIP_WHITE`.
+	 */
+	public function getSkipWsp(): bool {
+		return $this->getOption( Option::SkipWsp );
+	}
+
+	/**
+	 * Retrieve the parser option value of
+	 * `XML_OPTION_TARGET_ENCODING`.
+	 */
+	public function getTargetEncoding(): Encoding {
+		return Encoding::from( $this->getOption( Option::TargetEncoding ) );
+	}
+
+	/**
 	 * Sets a parser option.
 	 *
 	 * Internally calls `xml_parser_set_option()`.
 	 */
 	public function setOption( Option $option, string|int|bool $value ): bool {
 		return \xml_parser_set_option( $this->parser, $option->value, $value );
+	}
+
+	/**
+	 * Sets the parser option of `XML_OPTION_CASE_FOLDING`.
+	 */
+	public function setCaseFolding( bool $value ) {
+		$this->setOption( Option::CaseFolding, $value );
+	}
+
+	/**
+	 * Sets the parser option of `XML_OPTION_SKIP_WHITE`.
+	 */
+	public function setSkipTagStart( int $value ) {
+		$this->setOption( Option::SkipTagStart, $value );
+	}
+
+	/**
+	 * Sets the parser option of `XML_OPTION_SKIP_WHITE`.
+	 */
+	public function setSkipWsp( bool $value ) {
+		$this->setOption( Option::SkipWsp, $value );
+	}
+
+	/**
+	 * Sets the parser option of `XML_OPTION_TARGET_ENCODING`.
+	 */
+	public function setTargetEncoding( Encoding $encoding ) {
+		$this->setOption( Option::TargetEncoding, $encoding->value );
 	}
 
 	/**

@@ -79,8 +79,16 @@ class XmlNativeParserTest extends TestCase {
 		return [
 			[ Option::CaseFolding, true ],
 			[ Option::SkipTagStart, 0 ],
-			[ Option::SkipWhite, false ],
+			[ Option::SkipWsp, false ],
 			[ Option::TargetEncoding, 'UTF-8' ],
 		];
+	}
+
+	public function testGetOptionTyped() {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$this->assertTrue( $parser->getCaseFolding() );
+		$this->assertSame( 0, $parser->getSkipTagStart() );
+		$this->assertFalse( $parser->getSkipWsp() );
+		$this->assertSame( Encoding::Utf8, $parser->getTargetEncoding() );
 	}
 }
