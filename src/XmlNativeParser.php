@@ -121,7 +121,7 @@ class XmlNativeParser {
 	 *
 	 * Internally calls `xml_parser_get_option`.
 	 */
-	public function getOption( Option $option ): int|bool {
+	public function getOption( Option $option ): string|int|bool {
 		return \xml_parser_get_option( $this->parser, $option->value );
 	}
 
