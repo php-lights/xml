@@ -8,7 +8,7 @@
 [license-url]: #license
 [docs-badge]: https://img.shields.io/github/deployments/php-lights/php-xml/github-pages?label=docs&style=flat-square
 [docs-url]: https://php-lights.github.io/php-xml/
-[ci-badge]: https://img.shields.io/github/actions/workflow/status/php-lights/php-xml.github/workflows/php.yml?style=flat-square
+[ci-badge]: https://img.shields.io/github/actions/workflow/status/php-lights/php-xml/.github/workflows/php.yml?style=flat-square
 [ci-url]: https://github.com/php-lights/php-xml/actions/workflows/php.yml
 
 A PHP library that provides a nicer, lightweight wrapper around PHP's native XML API.
