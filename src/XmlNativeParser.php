@@ -7,6 +7,10 @@ use XMLParser;
 class XmlNativeParser {
 	public readonly XMLParser $parser;
 
+	private function __construct( XMLParser $parser ) {
+		$this->parser = $parser;
+	}
+
 	/**
 	 * Create a new `XmlNativeParser` instance, which may use a specific text encoding.
 	 */
