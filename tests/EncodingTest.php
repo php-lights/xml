@@ -14,7 +14,7 @@ class EncodingTest extends TestCase {
 		$this->assertEquals( $encoding->value, $encodingString );
 	}
 
-	public function provideVariantEquals(): array {
+	public static function provideVariantEquals(): array {
 		return [
 			[ Encoding::Iso8859_1, 'ISO-8859-1' ],
 			[ Encoding::UsAscii, 'US-ASCII' ],

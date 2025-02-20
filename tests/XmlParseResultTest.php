@@ -42,7 +42,7 @@ class XmlParseResultTest extends TestCase {
 		);
 	}
 
-	public function provideParseResult(): array {
+	public static function provideParseResult(): array {
 		return [
 			[
 				new XmlParseResult(
