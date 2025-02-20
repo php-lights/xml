@@ -18,6 +18,10 @@ A PHP library that provides a nicer, lightweight wrapper around PHP's native XML
 composer install neoncitylights/xml
 ```
 
+### Requirements
+- PHP 8.3+
+- [libxml](https://www.php.net/manual/en/book.libxml.php) (enabled by default in PHP)
+
 ## Usage
 
 ```php
