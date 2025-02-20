@@ -3,6 +3,8 @@
 namespace Neoncitylights\Xml;
 
 /**
+ * Options for configuring an XML parser
+ *
  * @see https://www.php.net/manual/en/xml.constants.php
  */
 enum Option: int {

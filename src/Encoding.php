@@ -3,6 +3,8 @@
 namespace Neoncitylights\Xml;
 
 /**
+ * A text encoding of an XML document
+ *
  * @see https://www.php.net/manual/en/xml.encoding.php
  */
 enum Encoding: string {

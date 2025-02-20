@@ -4,6 +4,9 @@ namespace Neoncitylights\Xml;
 
 use XMLParser;
 
+/**
+ * A lightweight wrapper around PHP's native XML API.
+ */
 class XmlNativeParser {
 	public readonly XMLParser $parser;
 
@@ -28,7 +31,6 @@ class XmlNativeParser {
 	 */
 	public static function newWithNamespace(
 		?Encoding $encoding = null,
-
 		?string $separator = ':',
 	): self {
 		return new XmlNativeParser( \xml_parser_create_ns(
@@ -135,7 +137,7 @@ class XmlNativeParser {
 
 	/**
 	 * Retrieve the parser option value of
-	 * `XML_OPTION_SKIP_TAG_START`.
+	 * `XML_OPTION_SKIP_TAGSTART`.
 	 */
 	public function getSkipTagStart(): int {
 		return $this->getOption( Option::SkipTagStart );
@@ -180,7 +182,7 @@ class XmlNativeParser {
 	}
 
 	/**
-	 * Sets the parser option of `XML_OPTION_SKIP_WHITE`.
+	 * Sets the parser option of `XML_OPTION_SKIP_TAGSTART`.
 	 *
 	 * @return bool Returns a boolean for whether or not
 	 * setting the option was a success.
@@ -307,7 +309,7 @@ class XmlNativeParser {
 	 *
 	 * Internally calls `xml_set_start_namespace_decl_handler()`.
 	 *
-	 * @param (callable(XmlDocumentParser, string): void)|null $handler
+	 * @param (callable(string): void)|null $handler
 	 * @return true Always returns true
 	 */
 	public function onStartNamespaceDecl( callable|null $handler ): true {
