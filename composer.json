@@ -15,7 +15,8 @@
 		}
 	},
 	"require": {
-		"php": ">=8.3"
+		"php": ">=8.3",
+		"ext-libxml": "*"
 	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "46.0.0",
