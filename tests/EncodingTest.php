@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class EncodingTest extends TestCase {
 	#[DataProvider( "provideVariantEquals" )]
 	public function testVariantEquals( Encoding $encoding, string $encodingString ): void {
-		$this->assertEquals( $encoding->value, $encodingString );
+		$this->assertSame( $encoding->value, $encodingString );
 	}
 
 	public static function provideVariantEquals(): array {

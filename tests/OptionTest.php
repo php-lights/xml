@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class OptionTest extends TestCase {
 	#[DataProvider( "provideVariantEquals" )]
 	public function testVariantEquals( Option $option, int $optionInt ): void {
-		$this->assertEquals( $option->value, $optionInt );
+		$this->assertSame( $option->value, $optionInt );
 	}
 
 	public static function provideVariantEquals(): array {
