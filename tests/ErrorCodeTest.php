@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class ErrorCodeTest extends TestCase {
 	#[DataProvider( "provideVariantEquals" )]
 	public function testVariantEquals( ErrorCode $errorCode, int $errorCodeInt ): void {
-		$this->assertEquals( $errorCode->value, $errorCodeInt );
+		$this->assertSame( $errorCode->value, $errorCodeInt );
 	}
 
 	public static function provideVariantEquals(): array {

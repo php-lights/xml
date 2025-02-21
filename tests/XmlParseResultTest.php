@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class XmlParseResultTest extends TestCase {
 	#[DataProvider( "provideParseResult" )]
 	public function testIndex( XmlParseResult $result ): void {
-		$this->assertEquals(
+		$this->assertSame(
 			[ 'PARA' => [ 0, 2 ], 'NOTE' => [ 1 ] ],
 			$result->index,
 		);
@@ -19,7 +19,7 @@ class XmlParseResultTest extends TestCase {
 
 	#[DataProvider( "provideParseResult" )]
 	public function testValues( XmlParseResult $result ): void {
-		$this->assertEquals(
+		$this->assertSame(
 			[
 				[
 					"tag" => "PARA",
