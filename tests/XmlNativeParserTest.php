@@ -68,6 +68,101 @@ class XmlNativeParserTest extends TestCase {
 		$this->assertSame( ErrorCode::None, $parser->getErrorCode() );
 	}
 
+	#[DataProvider( "provideParse" )]
+	public function testParse( string $path ): void {
+		$file = fopen( $path, 'r' );
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+
+		// read file
+		$result = null;
+		// phpcs:ignore Generic.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition
+		while ( ( $data = \fread( $file, 16384 ) ) ) {
+			$result = $parser->parse( $data );
+		}
+		$parser->parseFinalize();
+
+		// assert
+		$this->assertSame( 1, $result );
+	}
+
+	public static function provideParse(): array {
+		return [
+			[
+				__DIR__ . '/assets/example.xml',
+			]
+		];
+	}
+
+	#[DataProvider( "provideParseIntoStructFails" )]
+	public function testParseIntoStructFails(
+		string $xml,
+		ErrorCode $errorCode,
+	): void {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$result = $parser->parseIntoStruct( $xml );
+
+		// assert
+		$this->assertSame( $errorCode, $parser->getErrorCode() );
+		$this->assertFalse( $result );
+	}
+
+	public static function provideParseIntoStructFails(): array {
+		return [
+			[
+				<<<XML
+					<para>
+				XML,
+				ErrorCode::UnclosedToken,
+			]
+		];
+	}
+
+	#[DataProvider( "provideParseIntoStructWorks" )]
+	public function testParseIntoStructWorks(
+		string $xml,
+		ErrorCode $errorCode,
+		array $expectedResultValues,
+	): void {
+		$parser = XmlNativeParser::new( Encoding::Utf8 );
+		$result = $parser->parseIntoStruct( $xml );
+
+		// assert
+		$this->assertSame( $errorCode, $parser->getErrorCode() );
+
+		if ( $result !== false ) {
+			$this->assertSame( $expectedResultValues, $result->values );
+		}
+	}
+
+	public static function provideParseIntoStructWorks(): array {
+		return [
+			[
+				<<<XML
+					<para><note>simple note</note></para>
+				XML,
+				ErrorCode::None,
+				[
+					[
+						'tag' => 'PARA',
+						'type' => 'open',
+						'level' => 1,
+					],
+					[
+						'tag' => 'NOTE',
+						'type' => 'complete',
+						'level' => 2,
+						'value' => 'simple note',
+					],
+					[
+						'tag' => 'PARA',
+						'type' => 'close',
+						'level' => 1,
+					],
+				]
+			]
+		];
+	}
+
 	#[DataProvider( "provideGetOption" )]
 	public function testGetOption( Option $option, string|int|bool $expectedValue ): void {
 		$parser = XmlNativeParser::new( Encoding::Utf8 );

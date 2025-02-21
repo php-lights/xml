@@ -9,6 +9,10 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass( ErrorCode::class )]
 class ErrorCodeTest extends TestCase {
+	public function testAsErrorString(): void {
+		$this->assertSame( 'No error', ErrorCode::None->asErrorString() );
+	}
+
 	#[DataProvider( "provideVariantEquals" )]
 	public function testVariantEquals( ErrorCode $errorCode, int $errorCodeInt ): void {
 		$this->assertSame( $errorCode->value, $errorCodeInt );
