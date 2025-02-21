@@ -3,6 +3,7 @@
 [![License][license-badge]][license-url]
 [![Docs][docs-badge]][docs-url]
 [![CI][ci-badge]][ci-url]
+[![Codecov][codecov-badge]][codecov-url]
 
 [license-badge]: https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square
 [license-url]: #license
@@ -10,6 +11,8 @@
 [docs-url]: https://php-lights.github.io/php-xml/
 [ci-badge]: https://img.shields.io/github/actions/workflow/status/php-lights/php-xml/.github/workflows/php.yml?style=flat-square
 [ci-url]: https://github.com/php-lights/php-xml/actions/workflows/php.yml
+[codecov-badge]: https://img.shields.io/codecov/c/github/php-lights/php-xml?style=flat-square
+[codecov-url]: https://app.codecov.io/gh/php-lights/php-xml
 
 A PHP library that provides a nicer, lightweight wrapper around PHP's native XML API.
 
