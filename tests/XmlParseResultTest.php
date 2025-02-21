@@ -9,6 +9,11 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass( XmlParseResult::class )]
 class XmlParseResultTest extends TestCase {
+	public function testConstructor(): void {
+		$result = new XmlParseResult( [], [] );
+		$this->assertInstanceOf( XmlParseResult::class, $result );
+	}
+
 	#[DataProvider( "provideParseResult" )]
 	public function testIndex( XmlParseResult $result ): void {
 		$this->assertSame(
