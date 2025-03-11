@@ -1,14 +1,17 @@
 # php-xml
 
+[![Packagist][packagist-badge]][packagist-url]
 [![License][license-badge]][license-url]
 [![Docs][docs-badge]][docs-url]
 [![CI][ci-badge]][ci-url]
 [![Codecov][codecov-badge]][codecov-url]
 
+[packagist-badge]: https://img.shields.io/packagist/v/neoncitylights/xml?style=flat-square
+[packagist-url]: https://packagist.org/packages/neoncitylights/xml
 [license-badge]: https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square
 [license-url]: #license
 [docs-badge]: https://img.shields.io/github/deployments/php-lights/php-xml/github-pages?label=docs&style=flat-square
-[docs-url]: https://php-lights.github.io/php-xml/
+[docs-url]: https://php-lights.github.io/xml/
 [ci-badge]: https://img.shields.io/github/actions/workflow/status/php-lights/php-xml/.github/workflows/php.yml?style=flat-square
 [ci-url]: https://github.com/php-lights/php-xml/actions/workflows/php.yml
 [codecov-badge]: https://img.shields.io/codecov/c/github/php-lights/php-xml?style=flat-square
