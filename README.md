@@ -1,4 +1,4 @@
-# php-xml
+# Xml
 
 [![Packagist][packagist-badge]][packagist-url]
 [![License][license-badge]][license-url]
