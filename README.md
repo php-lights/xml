@@ -4,7 +4,7 @@
 [![License][license-badge]][license-url]
 [![Docs][docs-badge]][docs-url]
 [![CI][ci-badge]][ci-url]
-[![Codecov][codecov-badge]][codecov-url]
+[![Code coverage][codecov-badge]][codecov-url]
 
 [packagist-badge]: https://img.shields.io/packagist/v/neoncitylights/xml?style=flat-square
 [packagist-url]: https://packagist.org/packages/neoncitylights/xml
